@@ -286,6 +286,87 @@ footer {
   width: 100% !important;
 }
 
+/* iPhone用リンクカード */
+.tweet-link-container {
+  max-width: 600px;
+  margin: 40px auto 0;
+}
+
+.tweet-link-card {
+  background-color: #f8f9fa;
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.tweet-link-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.tweet-link-icon {
+  flex-shrink: 0;
+}
+
+.tweet-link-content h3 {
+  margin: 0 0 8px 0;
+  font-size: 24px;
+}
+
+.tweet-link-content p {
+  margin: 0 0 8px 0;
+  color: #666;
+}
+
+.tweet-link-description {
+  font-size: 14px;
+  color: #888;
+}
+
+/* プライマリボタン */
+.btn-primary {
+  background-color: #1DA1F2;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 32px;
+  border-radius: 100px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #1a91da;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(29, 161, 242, 0.3);
+}
+
+/* X用プライマリボタン */
+.btn-x-primary {
+  background-color: #000000;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 32px;
+  border-radius: 100px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-x-primary:hover {
+  background-color: #333333;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
 /* レスポンシブ対応 */
 @media (max-width: 768px) {
   .header-content {
@@ -330,5 +411,14 @@ footer {
   
   .nav-links a {
     font-size: 14px;
+  }
+  
+  .tweet-link-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .tweet-link-content {
+    text-align: center;
   }
 }

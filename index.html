@@ -90,7 +90,8 @@
         <p>店長がX(Twitter)でお知らせしています。</p>
       </div>
       
-      <div class="tweet-container">
+      <!-- PC用: Twitter埋め込み -->
+      <div class="tweet-container" id="tweet-embed-container">
         <div class="tweet-header">
           <h3>最新情報</h3>
         </div>
@@ -105,8 +106,25 @@
         </div>
       </div>
       
-      <div style="text-align: center; margin-top: 32px;">
-        <a href="https://twitter.com/minaken_0112" target="_blank" class="btn btn-secondary">ツイートをもっと見る</a>
+      <!-- iPhone用: リンクカード -->
+      <div class="tweet-link-container" id="tweet-link-container" style="display: none;">
+        <div class="tweet-link-card">
+          <div class="tweet-link-icon">
+            <svg viewBox="0 0 24 24" width="48" height="48" fill="#000000">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+          </div>
+          <div class="tweet-link-content">
+            <h3>店長のX(Twitter)をチェック</h3>
+            <p>@minaken_0112</p>
+            <p class="tweet-link-description">最新情報やイベント情報をお届けしています</p>
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: 24px;">
+          <a href="https://twitter.com/minaken_0112" target="_blank" class="btn btn-x-primary">
+            X(Twitter)で見る
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -145,5 +163,30 @@
   
   <!-- Twitter widget script -->
   <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  
+  <!-- デバイス判定スクリプト -->
+  <script>
+    // iPhone/iPadの判定
+    function isIOS() {
+      return /iPhone|iPad|iPod/i.test(navigator.userAgent) || 
+             (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    }
+    
+    // 表示切り替え
+    window.addEventListener('DOMContentLoaded', function() {
+      const embedContainer = document.getElementById('tweet-embed-container');
+      const linkContainer = document.getElementById('tweet-link-container');
+      
+      if (isIOS()) {
+        // iPhone/iPadの場合はリンク表示
+        embedContainer.style.display = 'none';
+        linkContainer.style.display = 'block';
+      } else {
+        // その他のデバイスは埋め込み表示
+        embedContainer.style.display = 'block';
+        linkContainer.style.display = 'none';
+      }
+    });
+  </script>
 </body>
 </html>
